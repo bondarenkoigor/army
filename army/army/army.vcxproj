@@ -142,10 +142,13 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="army.h" />
     <ClInclude Include="arrow.h" />
     <ClInclude Include="bow.h" />
+    <ClInclude Include="bowman.h" />
     <ClInclude Include="horse.h" />
     <ClInclude Include="quiver.h" />
+    <ClInclude Include="rider.h" />
     <ClInclude Include="soldier.h" />
     <ClInclude Include="spear.h" />
     <ClInclude Include="sword.h" />

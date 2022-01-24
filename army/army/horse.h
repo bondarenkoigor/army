@@ -5,13 +5,18 @@ private:
 	int health;
 	bool isAlive;
 public:
-	horse() : health(250), isAlive(true) {}
-	int gethealth()
+	horse() : health(200), isAlive(true) {}
+	int getHealth()
 	{
 		return health;
 	}
-	int takedamage(int damage)
+	void takeDamage(int damage)
 	{
 		this->health -= damage;
+		if (this->health <= 0) this->isAlive = false;
+	}
+	bool getIsAlive()
+	{
+		return isAlive;
 	}
 };

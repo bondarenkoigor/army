@@ -53,5 +53,14 @@
     <ClInclude Include="swordsman.h">
       <Filter>Файлы заголовков\Soldiers</Filter>
     </ClInclude>
+    <ClInclude Include="bowman.h">
+      <Filter>Файлы заголовков\Soldiers</Filter>
+    </ClInclude>
+    <ClInclude Include="rider.h">
+      <Filter>Файлы заголовков\Soldiers</Filter>
+    </ClInclude>
+    <ClInclude Include="army.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

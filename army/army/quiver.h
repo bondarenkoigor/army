@@ -1,32 +1,32 @@
 #pragma once
 #include"arrow.h"
-struct Node
+struct arrowNode
 {
 	arrow* arr;
-	Node* next;
-	Node* prev;
-	Node(arrow* arr, Node* next) : arr(arr), next(next), prev(prev) {}
+	arrowNode* next;
+	arrowNode* prev;
+	arrowNode(arrow* arr, arrowNode* next) : arr(arr), next(next), prev(prev) {}
 };
 
 class quiver
 {
 private:
-	Node* arrows;
+	arrowNode* arrows;
 	void addArrow()
 	{
 		if (arrows == nullptr)
 		{
-			this->arrows = new Node(new arrow, nullptr);
+			this->arrows = new arrowNode(new arrow, nullptr);
 			this->arrows->next = nullptr;
 			this->arrows->prev = nullptr;
 			return;
 		}
-		Node* iter = this->arrows;
+		arrowNode* iter = this->arrows;
 		while (iter->next != nullptr)
 		{
 			iter = iter->next;
 		}
-		iter->next = new Node(new arrow, nullptr);
+		iter->next = new arrowNode(new arrow, nullptr);
 		iter->next->next = nullptr;
 		iter->next->prev = iter;
 	}
@@ -45,11 +45,11 @@ public:
 		return arrows->arr->getDamage();
 	}
 
-	void delete_arrow()
+	void deleteArrow()
 	{
 		if (this->arrows == nullptr) return;
 
-		Node* iter = this->arrows;
+		arrowNode* iter = this->arrows;
 		while (iter->next != nullptr)  iter = iter->next;
 		if (iter == this->arrows) this->arrows = nullptr;
 		else iter->prev->next = nullptr;
@@ -58,7 +58,7 @@ public:
 
 	bool isEmpty()
 	{
-		return (this->arrows = nullptr);
+		return (this->arrows == nullptr);
 	}
 };
 

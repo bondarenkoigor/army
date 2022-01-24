@@ -12,12 +12,12 @@ public:
 		return durability;
 	}
 
-	int getDamage()
+	virtual int getDamage()
 	{
 		return this->damage;
 	}
 
-	void takeDurabilityDamage()
+	virtual void takeDurabilityDamage()
 	{
 		this->durability -= 10;
 	}
@@ -25,7 +25,6 @@ public:
 	virtual int dealDamage()
 	{
 		if (this->durability <= 0) return 0;
-
 		takeDurabilityDamage();
 		return this->damage;
 	}
