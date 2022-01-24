@@ -13,6 +13,10 @@ public:
 	{
 		return health;
 	}
+	bool getIsAlive()
+	{
+		return isAlive;
+	}
 	virtual void takeDamage(int damage)
 	{
 		this->health -= damage;
@@ -22,8 +26,8 @@ public:
 	{
 		otherSoldier->takeDamage(this->usedWeapon->dealDamage());
 	}
-	virtual std::string getSoldierName()
+	virtual std::string getSoldierInfo()
 	{
-		return "soldier";
+		return "soldier" + std::string("(") + std::to_string(this->health) + std::string("HP)");
 	}
 };

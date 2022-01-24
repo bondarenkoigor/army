@@ -42,9 +42,35 @@ public:
 		soldierNode* iter = this->head;
 		while (iter!=nullptr)
 		{
-			info += iter->sold->getSoldierName() + "\n";
+			info += iter->sold->getSoldierInfo() + "\n";
 			iter = iter->next;
 		}
 		return info;
+	}
+
+	void fight(army* otherArmy)
+	{
+		while (true)
+		{
+			//attacker's turn
+			this->head->sold->attack(otherArmy->head->sold);
+			std::cout << "ATTACKER " << this->head->sold->getSoldierInfo() << " hits " << otherArmy->head->sold->getSoldierInfo() << "\n";
+			if (otherArmy->head->sold->getIsAlive() == false) otherArmy->remove();
+			//defender's turn
+			otherArmy->head->sold->attack(this->head->sold);
+			std::cout << "DEFENDER " << otherArmy->head->sold->getSoldierInfo() << " hits " << this->head->sold->getSoldierInfo() << "\n";
+			if (this->head->sold->getIsAlive() == false) this->remove();
+			//check if any army won
+			if (this->head == nullptr)
+			{
+				std::cout << "defender won\n";
+				return;
+			}
+			if (otherArmy->head == nullptr)
+			{
+				std::cout << "attacker won\n";
+				return;
+			}
+		}
 	}
 };

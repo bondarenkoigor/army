@@ -11,6 +11,12 @@ int main()
 	first.add(new rider());
 	first.add(new swordsman());
 	first.add(new bowman());
+	army second;
+	second.add(new swordsman());
+	second.add(new bowman());
+	second.add(new rider());
+	second.add(new swordsman());
+	second.add(new bowman());
 
-	std::cout << first.getInfo();
+	first.fight(&second);
 }

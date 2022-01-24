@@ -27,8 +27,10 @@ public:
 	{
 		return this->usedHorse->getHealth();
 	}
-	virtual std::string getSoldierName()
+	virtual std::string getSoldierInfo()
 	{
-		return "rider";
+		std::string info = "rider" + std::string("(") + std::to_string(this->health) + std::string("HP)");
+		if (this->usedHorse->getIsAlive()) info += " on horse(" + std::to_string(this->getHorseHealth()) + std::string("HP)");
+		return info;
 	}
 };

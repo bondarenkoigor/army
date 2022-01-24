@@ -10,8 +10,8 @@ public:
 		this->isAlive = true;
 		this->usedWeapon = new sword();
 	}
-	virtual std::string getSoldierName()
+	virtual std::string getSoldierInfo()
 	{
-		return "swordsman";
+		return "swordsman" + std::string("(") + std::to_string(this->health) + std::string("HP)");;
 	}
 };
