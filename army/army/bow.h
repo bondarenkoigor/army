@@ -18,7 +18,7 @@ public:
 
 	int dealDamage()
 	{
-		if (this->durability <= 0 || quiv->isEmpty() == false) return 0;
+		if (this->durability <= 0 || quiv->isEmpty()) return 0;
 		takeDurabilityDamage();
 		return this->getDamage();
 	}

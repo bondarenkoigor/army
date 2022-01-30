@@ -1,4 +1,5 @@
-#include"iostream"
+#include<iostream>
+#include<conio.h>
 #include"army.h"
 #include"swordsman.h"
 #include"bowman.h"
@@ -6,17 +7,41 @@
 int main()
 {
 	army first;
-	first.add(new swordsman());
-	first.add(new bowman());
-	first.add(new rider());
-	first.add(new swordsman());
-	first.add(new bowman());
 	army second;
-	second.add(new swordsman());
-	second.add(new bowman());
-	second.add(new rider());
-	second.add(new swordsman());
-	second.add(new bowman());
+	army* tmp = &first;
+	while (true) {
+		std::cout << "1 - add a swordsman\n"
+			<< "2 - add a bowman\n"
+			<< "3 - add a rider\n"
+			<< "0 - switch army\n"
+			<< "tab - clear\n"
+			<< "Enter - start battle\n"
+			<< "Esc - exit\n\n\n";
+		std::cout << "first army:\n" << first.getInfo() << "\n";
+		std::cout << "second army:\n" << second.getInfo() << "\n";
 
-	first.fight(&second);
+		switch (_getch())
+		{
+		case '1': tmp->add(new swordsman());
+			break;
+		case '2': tmp->add(new bowman());
+			break;
+		case '3': tmp->add(new rider());
+			break;
+		case '0':
+			if (tmp == &first) tmp = &second;
+			else tmp = &first;
+			break;
+		case '\t':
+			first.clear();
+			second.clear();
+			break;
+		case 13:
+			first.fight(&second);
+			system("pause");
+			break;
+		case 27: return 0;
+		}
+		system("cls");
+	}
 }

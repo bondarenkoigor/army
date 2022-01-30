@@ -40,7 +40,7 @@ public:
 	{
 		std::string info = "";
 		soldierNode* iter = this->head;
-		while (iter!=nullptr)
+		while (iter != nullptr)
 		{
 			info += iter->sold->getSoldierInfo() + "\n";
 			iter = iter->next;
@@ -50,6 +50,7 @@ public:
 
 	void fight(army* otherArmy)
 	{
+		if (this->head == nullptr || otherArmy->head == nullptr) return;
 		while (true)
 		{
 			//attacker's turn
@@ -70,6 +71,13 @@ public:
 				std::cout << "defender won\n";
 				return;
 			}
+		}
+	}
+	void clear()
+	{
+		while (this->head != nullptr)
+		{
+			this->remove();
 		}
 	}
 };
